@@ -12,4 +12,7 @@
 
 ### Open Locally
 1. Download or clone this repository  
-2. Open `index.html` in any web browser  
+2. Open `index.html` in any web browser
+
+##live link
+https://jagavi-hub.github.io/MusicPlayer/
