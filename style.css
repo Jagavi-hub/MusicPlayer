@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    height: 100vh;
+    background:
+        radial-gradient(circle at top, #1e293b, #020617),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* FLOATING EMOJIS */
+.emojis span {
+    position: absolute;
+    font-size: 28px;
+    opacity: 0.2;
+    animation: float 12s linear infinite;
+}
+
+.emojis span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.emojis span:nth-child(2) { left: 30%; animation-delay: 2s; }
+.emojis span:nth-child(3) { left: 50%; animation-delay: 4s; }
+.emojis span:nth-child(4) { left: 70%; animation-delay: 6s; }
+.emojis span:nth-child(5) { left: 90%; animation-delay: 8s; }
+
+@keyframes float {
+    from { top: 110%; }
+    to { top: -10%; }
+}
+
+/* MAIN CONTAINER */
+.vibe-container {
+    width: 900px;
+    height: 420px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(18px);
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+}
+
+/* MOODS */
+.moods {
+    padding: 25px;
+}
+
+.moods h3 {
+    margin-bottom: 15px;
+}
+
+.mood {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mood:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.active {
+    background: #38bdf8;
+    color: #020617;
+}
+
+/* CENTER */
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.now {
+    color: #38bdf8;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.center h1 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.artist {
+    color: #94a3b8;
+}
+
+/* PLAY TOGGLE */
+#vibe-toggle {
+    display: none;
+}
+
+.vibe-btn {
+    margin-top: 25px;
+    padding: 14px 26px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #38bdf8, #22d3ee);
+    color: #020617;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(56,189,248,0.6);
+}
+
+.pause {
+    display: none;
+}
+
+#vibe-toggle:checked ~ .vibe-container .play {
+    display: none;
+}
+
+#vibe-toggle:checked ~ .vibe-container .pause {
+    display: inline;
+}
+
+/* PULSE */
+.pulse {
+    display: flex;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.pulse span {
+    width: 8px;
+    height: 25px;
+    background: #38bdf8;
+    animation: pulse 1s infinite;
+}
+
+#vibe-toggle:not(:checked) ~ .vibe-container .pulse span {
+    animation-play-state: p
